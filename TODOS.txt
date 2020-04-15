@@ -1,0 +1,25 @@
+Update db at the end of every war by calculating time between now and the end date of war using setTimeout
+
+When updating db, add player values all to one table named war stats, each war divided by war number count.
+To retrieve data, filter by war number for data about specific wars, filter by name for data about specific members
+
+
+table headers
+
+tag
+War number
+name
+cardsEarned
+battlesPlayed
+wins
+collectionDayBattlePlayed
+numberOfBattles
+
+@echo off
+aws dynamodb create-table 
+--table-name warStats 
+--attribute-definitions 
+AttributeName=warNumber,AttributeType=S AttributeName=tag,AttributeType=S AttributeName=name,AttributeType=S AttributeName=cardsEarned,AttributeType=S  AttributeName=battlesPlayed,AttributeType=S  AttributeName=wins,AttributeType=S AttributeName=collectionDayBattlesPlayed,AttributeType=S AttributeName=numberOfBattles,AttributeType=S  
+--key-schema  AttributeName=warNumber,KeyType=HASH  AttributeName=tag,KeyType=RANGE --provisioned-throughput  ReadCapacityUnits=1,WriteCapacityUnits=1
+            
+pause
