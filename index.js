@@ -57,13 +57,7 @@ async function checkStatus() {
     const prevWar = await prevWarStats();
     warNum = prevWar[0].warNumber;
     checkForUpdates(prevWar[0], response.items[0]);
-    // console.log(prevWar[0].createdDate === response.items[0].createdDate);
-    // if (prevWar[0].createdDate !== response.items[0].createdDate) {
-    //   console.log("Starting to Update");
-    //   updateTable(prevWar[0].warNumber, response);
-    // } else {
-    //   console.log("No need to update");
-    // }
+  
   } catch (error) {
     console.log(error);
   }
